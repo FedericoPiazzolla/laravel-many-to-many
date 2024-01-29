@@ -18,9 +18,15 @@
 
       <div class="mt-5">
         <h5 class="text-warning">technology:</h5>
+
+        @if ($project->technologies->isEmpty())
+          <span class="badge rounded-pill text-bg-dark">No technology assigned</span>
+        @endif
+
         @foreach ($project->technologies as $technology)
           <span class="badge rounded-pill text-bg-dark">{{ $technology->name }}</span>
         @endforeach
+    
       </div>
 
     </div>
