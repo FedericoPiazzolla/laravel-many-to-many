@@ -26,8 +26,10 @@
         @foreach ($project->technologies as $technology)
           <span class="badge rounded-pill text-bg-dark">{{ $technology->name }}</span>
         @endforeach
-    
+        
       </div>
+
+      <a class="btn btn-warning mt-5" href="{{ route('admin.projects.edit', ['project' => $project->slug]) }}">Edit</a> 
 
     </div>
 @endsection

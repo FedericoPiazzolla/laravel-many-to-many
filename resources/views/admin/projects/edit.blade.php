@@ -37,17 +37,21 @@
       {{-- /Type --}}
 
       {{-- Technology --}}
-      <div class="my-4">
+      <div class="my-4 has-validation">
         <h4>Select Technologies used</h4>
 
         @foreach ($technologies as $technology)
           <div class="form-check">
 
-            <input @checked($project->technologies->contains($technology)) type="checkbox" name="technologies[]" id="technology-{{ $technology->id }}" value="{{ $technology->id }}">
+            <input @checked( $errors->any() ? in_array($technology->id, old('technologies', [])) : $project->technologies->contains($technology)) type="checkbox" name="technologies[]" id="technology-{{ $technology->id }}" value="{{ $technology->id }}">
             <label for="technology-{{ $technology->id }}">{{ $technology->name }}</label>
 
           </div> 
         @endforeach
+
+        @error('')
+          <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
       </div>
       {{-- /Technology --}}
 

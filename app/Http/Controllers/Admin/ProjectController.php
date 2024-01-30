@@ -94,6 +94,12 @@ class ProjectController extends Controller
         $form_data = $request->validated();
         $project->update($form_data);
 
+        if ($request->has('technologies')) {
+            $project->technologies()->sync($request->technologies);
+        } else {
+            $project->technologies()->sync([]);
+        }
+
         return redirect()->route('admin.projects.show', ['project' => $project->slug]);
     }
 
