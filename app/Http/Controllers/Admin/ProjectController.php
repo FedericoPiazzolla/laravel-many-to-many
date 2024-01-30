@@ -49,6 +49,12 @@ class ProjectController extends Controller
         $project->fill($form_data);
         $project->save();
 
+        // Associo le technologies selected al nuovo progetto
+        if ($request->has('technologies')) {
+            // quest'operazione la faccio dopo il save poichè mi serve l'id del project per associarlo
+            $project->technologies()->attach($request->technologies);
+        }
+
         return redirect()->route('admin.projects.show', ['project' => $project->slug]);
     }
 
