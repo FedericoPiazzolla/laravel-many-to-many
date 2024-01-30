@@ -46,6 +46,10 @@
             </div>
 
           @endforeach
+
+          @error('technologies')
+            <div class="text-danger">{{ $message }}</div>
+          @enderror
         </div>
         {{-- /technologies --}}
 
