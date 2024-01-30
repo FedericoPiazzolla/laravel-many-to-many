@@ -32,6 +32,22 @@
             @enderror
           </select>
         </div>
+        {{-- /types --}}
+
+        {{-- technologies --}}
+        <div class="my-4">
+          @foreach ($technologies as $technology)
+
+            <div class="form-check">
+              <input type="checkbox" id="technology-{{ $technology->id }}" value="{{ $technology->id }}" name="technologies[]">
+              <label for="technology-{{ $technology->id }}">
+                {{ $technology->name }}
+              </label>
+            </div>
+
+          @endforeach
+        </div>
+        {{-- /technologies --}}
 
         <div class="mb-3">
           <label for="content" class="form-label">Content</label>
