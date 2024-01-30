@@ -19,6 +19,7 @@
         @enderror
       </div>
 
+      {{-- Type --}}
       <div class="mb-3 has-validation">
         <label for="type">Select Type</label>
         <select class="form-select @error('type_id') is-invalid @enderror" name="type_id" id="type">
@@ -33,6 +34,13 @@
           @enderror
         </select>
       </div>
+      {{-- /Type --}}
+
+      {{-- Technology --}}
+      <div>
+        
+      </div>
+      {{-- /Technology --}}
 
       <div class="mb-3">
         <label for="content" class="form-label">Content</label>
