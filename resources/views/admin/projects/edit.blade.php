@@ -37,7 +37,7 @@
       {{-- /Type --}}
 
       {{-- Technology --}}
-      <div class="my-4 has-validation">
+      <div class="my-4">
         <h4>Select Technologies used</h4>
 
         @foreach ($technologies as $technology)
@@ -49,8 +49,8 @@
           </div> 
         @endforeach
 
-        @error('')
-          <div class="invalid-feedback">{{ $message }}</div>
+        @error('technologies')
+          <div class="text-danger">{{ $message }}</div>
         @enderror
       </div>
       {{-- /Technology --}}
