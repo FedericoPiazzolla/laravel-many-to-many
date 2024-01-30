@@ -37,8 +37,17 @@
       {{-- /Type --}}
 
       {{-- Technology --}}
-      <div>
-        
+      <div class="my-4">
+        <h4>Select Technologies used</h4>
+
+        @foreach ($technologies as $technology)
+          <div class="form-check">
+
+            <input @checked($project->technologies->contains($technology)) type="checkbox" name="technologies[]" id="technology-{{ $technology->id }}" value="{{ $technology->id }}">
+            <label for="technology-{{ $technology->id }}">{{ $technology->name }}</label>
+
+          </div> 
+        @endforeach
       </div>
       {{-- /Technology --}}
 
